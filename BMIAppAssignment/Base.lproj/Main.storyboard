@@ -129,6 +129,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fO5-By-miP">
+                                <rect key="frame" x="20" y="492.33333333333331" width="42" height="16"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="b7f-Dv-8se"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Sc1-F6-mR7" appends="YES" id="EKf-lV-6rP"/>
+                                </connections>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -141,6 +154,7 @@
                             <constraint firstItem="bRV-2T-c4S" firstAttribute="trailing" secondItem="uye-FZ-4b2" secondAttribute="trailing" id="AXS-Mo-PC4"/>
                             <constraint firstItem="k3K-Xe-z4o" firstAttribute="top" secondItem="MIu-KV-smR" secondAttribute="bottom" constant="12" id="Ccg-DI-tEj"/>
                             <constraint firstItem="zVB-7W-Ixk" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="HWV-tH-hQ8"/>
+                            <constraint firstItem="fO5-By-miP" firstAttribute="top" secondItem="uye-FZ-4b2" secondAttribute="bottom" constant="12" id="KF6-UM-ABs"/>
                             <constraint firstItem="k3K-Xe-z4o" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="KTw-0a-UTG"/>
                             <constraint firstItem="zVB-7W-Ixk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="36" id="Lbu-Ef-J0O"/>
                             <constraint firstItem="ncz-5m-wtn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="28" id="NPx-yU-GAj"/>
@@ -158,6 +172,7 @@
                             <constraint firstItem="tof-sc-C3H" firstAttribute="top" secondItem="uye-FZ-4b2" secondAttribute="bottom" constant="60" id="cK8-8r-8bF"/>
                             <constraint firstItem="zVB-7W-Ixk" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.269171" id="dvX-us-6Bj"/>
                             <constraint firstItem="CJ0-aI-gKQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="28" id="emO-Bf-UaS"/>
+                            <constraint firstItem="fO5-By-miP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="f47-WL-cMR"/>
                             <constraint firstItem="k3K-Xe-z4o" firstAttribute="top" secondItem="zVB-7W-Ixk" secondAttribute="bottom" id="nq5-4m-avz"/>
                             <constraint firstItem="uye-FZ-4b2" firstAttribute="top" secondItem="Ate-Le-i63" secondAttribute="bottom" constant="12" id="oAA-2Y-iWl"/>
                             <constraint firstItem="zVB-7W-Ixk" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.374046" id="wdx-ik-iUa"/>
@@ -172,7 +187,7 @@
                     <connections>
                         <outlet property="eyeButton" destination="bRV-2T-c4S" id="GMH-fZ-0SZ"/>
                         <outlet property="mainTextLabel" destination="ncz-5m-wtn" id="n4F-ge-vUK"/>
-                        <outlet property="nickNameTextField" destination="8f8-mx-33P" id="Apr-qH-MfD"/>
+                        <outlet property="randomNicMakeLabel" destination="fO5-By-miP" id="Jui-3l-wPt"/>
                         <outlet property="randomTextLabel" destination="F94-gx-lES" id="i5v-PZ-UH4"/>
                         <outlet property="resultButton" destination="tof-sc-C3H" id="1W3-gn-xkl"/>
                         <outlet property="subTextlabel" destination="bXx-rI-d5m" id="NQl-Wi-Upr"/>
@@ -193,6 +208,11 @@
                 <tapGestureRecognizer id="6jg-aR-hnH">
                     <connections>
                         <action selector="randomTouchs:" destination="BYZ-38-t0r" id="ZWt-AS-0EB"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Sc1-F6-mR7">
+                    <connections>
+                        <action selector="randomNicTap:" destination="BYZ-38-t0r" id="1GZ-sH-a6I"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

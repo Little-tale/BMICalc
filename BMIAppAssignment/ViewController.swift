@@ -36,8 +36,9 @@ class ViewController: UIViewController {
     @IBOutlet var randomTextLabel: UILabel!
     @IBOutlet var resultButton: UIButton!
     @IBOutlet var eyeButton: UIButton!
-    @IBOutlet var nickNameTextField: UITextField!
+    // @IBOutlet var nickNameTextField: UITextField!
     
+    @IBOutlet var randomNicMakeLabel: UILabel!
     
     
     
@@ -56,6 +57,13 @@ class ViewController: UIViewController {
         designResultButton(resultButton)
         designEyeButton(eyeButton,eyeButtonisAct)
         setSaveTextField()
+        designRandomLabel(randomNicMakeLabel)
+    }
+    func designRandomLabel(_ uil:UILabel) {
+        uil.font = .systemFont(ofSize: 12)
+        uil.textColor = .blue
+        uil.text = "닉네임 생성기"
+        uil.isUserInteractionEnabled = true
     }
     
     func designMain(_ uil: UILabel) {
@@ -100,6 +108,7 @@ class ViewController: UIViewController {
     func designTextFList(_ uitfL:[UITextField]) {
         var tempTag = 0
         for item in uitfL {
+            print(item.tag)
             // item.isUserInteractionEnabled = true
             item.clipsToBounds = true
             item.keyboardType = .numberPad
@@ -376,18 +385,24 @@ class ViewController: UIViewController {
 //        textField[0].text = String(Int(resultDic[0]!))
 //        textField[1].text = String(resultDic[1]!)
 //        
-        for i in 0...resultDic.count-1 {
-            textField[i].text = String(Int(resultDic[i]!))
-            print(textField[i].text!)
-        }
+    
         for i in textField {
-            if (i.tag == 2) {
-                i.text = randomNicList.randomElement()
+            if (i.tag != 2) {
+                textField[i.tag].text = String(Int(resultDic[i.tag]!))
+                print(textField[i.tag].text!)
             }
         }
         
     }
     // 랜덤닉네임
+    @IBAction func randomNicTap(_ sender: UITapGestureRecognizer) {
+        for i in textField {
+            if (i.tag == 2) {
+                i.text = randomNicList.randomElement()
+            }
+        }
+    }
+    
     
 }
 
