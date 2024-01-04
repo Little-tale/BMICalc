@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     let placeH = ["예) 180","예) 65"]
     let randomText = "렌덤으로 BMI 계산하기"
     let resultText = "결과 확인"
+    var resultV = [0:"저체중", 1:"정상",2:"과체중",3:"비만",4:"고도비만"]
     let secualTextFieldNum = 1
     //
     var eyeButtonisAct = true
@@ -222,7 +223,24 @@ class ViewController: UIViewController {
         if let height = resultDic[0], let weight = resultDic[1] {
                 let bmi = CalcBmi(height: height, weight: weight)
                 let message = "BMI : \(bmi)"
-                designAlert2(title: "BMI 결과", message: message)
+            var test = ""
+            
+            switch bmi {
+            case ...18.5 :
+                test = resultV[0]!
+            case 18.5...22.9 :
+                test = resultV[1]!
+            case 23.0...24.9 :
+                test = resultV[2]!
+            case 25.0...29.9 :
+                test = resultV[3]!
+            case 30... :
+                test = resultV[4]!
+            default :
+                test = "Error"
+            }
+            
+                designAlert2(title: test, message: message)
             } else {
                 designAlert2(title: "오류", message: "데이터가 누락되었습니다.")
             }
