@@ -13,3 +13,4 @@
  
 ### 3. 리셋 기능
 <a href='https://ifh.cc/v-jwsLTB' target='_blank'><video src='https://ifh.cc/v/jwsLTB.mp4' muted autoplay loop playsinline></a>
+![title](https://ifh.cc/v/jwsLTB.mp4)   
