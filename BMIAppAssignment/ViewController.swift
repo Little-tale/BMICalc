@@ -228,11 +228,11 @@ class ViewController: UIViewController {
             switch bmi {
             case ...18.5 :
                 test = resultV[0]!
-            case 18.5...22.9 :
+            case 18.5...22.99 :
                 test = resultV[1]!
-            case 23.0...24.9 :
+            case 23.0...24.99 :
                 test = resultV[2]!
-            case 25.0...29.9 :
+            case 25.0...29.99 :
                 test = resultV[3]!
             case 30... :
                 test = resultV[4]!
@@ -288,17 +288,19 @@ class ViewController: UIViewController {
         // 계산식 ->  키2승 / kg
         //textField.forEach()
         //designAlert(title: <#T##String#>, message: <#T##String#>)
+        
         textField.forEach{
             testResult( $0, sender)
         }
         AccessResult()
-        
     }
     
     // 리턴키 없음 레잔도
     @IBAction func returnKeyBoard(_ sender: UITextField) {
         view.endEditing(true)
     }
+    
+    
     
     
     
