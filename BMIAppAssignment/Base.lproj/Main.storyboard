@@ -124,7 +124,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닉네임" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CJ0-aI-gKQ">
-                                <rect key="frame" x="24" y="213.33333333333334" width="45" height="21"/>
+                                <rect key="frame" x="28" y="213.33333333333334" width="45" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -157,7 +157,7 @@
                             <constraint firstItem="uye-FZ-4b2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="cIJ-wm-y0M"/>
                             <constraint firstItem="tof-sc-C3H" firstAttribute="top" secondItem="uye-FZ-4b2" secondAttribute="bottom" constant="60" id="cK8-8r-8bF"/>
                             <constraint firstItem="zVB-7W-Ixk" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.269171" id="dvX-us-6Bj"/>
-                            <constraint firstItem="CJ0-aI-gKQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="emO-Bf-UaS"/>
+                            <constraint firstItem="CJ0-aI-gKQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="28" id="emO-Bf-UaS"/>
                             <constraint firstItem="k3K-Xe-z4o" firstAttribute="top" secondItem="zVB-7W-Ixk" secondAttribute="bottom" id="nq5-4m-avz"/>
                             <constraint firstItem="uye-FZ-4b2" firstAttribute="top" secondItem="Ate-Le-i63" secondAttribute="bottom" constant="12" id="oAA-2Y-iWl"/>
                             <constraint firstItem="zVB-7W-Ixk" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.374046" id="wdx-ik-iUa"/>
@@ -172,6 +172,7 @@
                     <connections>
                         <outlet property="eyeButton" destination="bRV-2T-c4S" id="GMH-fZ-0SZ"/>
                         <outlet property="mainTextLabel" destination="ncz-5m-wtn" id="n4F-ge-vUK"/>
+                        <outlet property="nickNameTextField" destination="8f8-mx-33P" id="Apr-qH-MfD"/>
                         <outlet property="randomTextLabel" destination="F94-gx-lES" id="i5v-PZ-UH4"/>
                         <outlet property="resultButton" destination="tof-sc-C3H" id="1W3-gn-xkl"/>
                         <outlet property="subTextlabel" destination="bXx-rI-d5m" id="NQl-Wi-Upr"/>
@@ -179,6 +180,8 @@
                         <outletCollection property="buttonTextLabelT" destination="MIu-KV-smR" collectionClass="NSMutableArray" id="BZu-XZ-L3p"/>
                         <outletCollection property="textField" destination="k3K-Xe-z4o" collectionClass="NSMutableArray" id="aXU-Lh-LWw"/>
                         <outletCollection property="textField" destination="uye-FZ-4b2" collectionClass="NSMutableArray" id="0wN-Kn-HtQ"/>
+                        <outletCollection property="textField" destination="8f8-mx-33P" collectionClass="NSMutableArray" id="Sjp-hW-zlo"/>
+                        <outletCollection property="buttonTextLabelT" destination="CJ0-aI-gKQ" collectionClass="NSMutableArray" id="HwW-NL-YMK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

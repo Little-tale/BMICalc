@@ -8,14 +8,16 @@
 import UIKit
 
 class ViewController: UIViewController {
-//  Kg / 키2승
+    //  Kg / 키2승
     let mainText = "BMI Calculator"
     let subText = "당신의 BMI 지수를 알려드립니다."
-    let butSubText = ["키가 어떻게 되시나요?","몸무게는 어떻게 되시나요?"]
-    let placeH = ["예) 180","예) 65"]
+    let butSubText = ["닉네임 지어주세요~","키가 어떻게 되시나요?","몸무게는 어떻게 되시나요?"]
+    let placeH = ["예) 180","예) 65","예) 개똥이"]
     let randomText = "렌덤으로 BMI 계산하기"
     let resultText = "결과 확인"
     var resultV = [0:"저체중", 1:"정상",2:"과체중",3:"비만",4:"고도비만"]
+    
+    var randomNicList = ["그라만","안돼~","딕셔너리는","순서가 없잖아~","생각을","해보고","코드를","넣어보자"]
     let secualTextFieldNum = 1
     //
     var eyeButtonisAct = true
@@ -23,8 +25,10 @@ class ViewController: UIViewController {
     var height : Int = 0
     var weight : Int = 0
     
+    let defaultKey = ["키","몸무게","닉네임"]
+    
     var resultDic :[Int : Double] = [0:0, 1:0]
-     
+    // 키 무게 닉
     @IBOutlet var mainTextLabel: UILabel!
     @IBOutlet var subTextlabel: UILabel!
     @IBOutlet var buttonTextLabelT: [UILabel]!
@@ -32,12 +36,14 @@ class ViewController: UIViewController {
     @IBOutlet var randomTextLabel: UILabel!
     @IBOutlet var resultButton: UIButton!
     @IBOutlet var eyeButton: UIButton!
+    @IBOutlet var nickNameTextField: UITextField!
     
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(defaultKey)
         design()
     }
     
@@ -49,6 +55,7 @@ class ViewController: UIViewController {
         designRandomText(randomTextLabel)
         designResultButton(resultButton)
         designEyeButton(eyeButton,eyeButtonisAct)
+        setSaveTextField()
     }
     
     func designMain(_ uil: UILabel) {
@@ -99,7 +106,12 @@ class ViewController: UIViewController {
             item.tag = tempTag
             tempTag += 1
             item.textAlignment = .center
+            // 닉네임 부분 예외처리
+            if (item.tag == 2) {
+                item.keyboardType = .default
+            }
         }
+        //
         var temp = placeH
         temp.reverse()
         print(temp)
@@ -112,6 +124,10 @@ class ViewController: UIViewController {
         uitf.layer.borderWidth = 1
         uitf.placeholder = str
         uitf.layer.cornerRadius = 20
+        
+        if (uitf.tag == 2) {
+            uitf.layer.cornerRadius = 10
+        }
     }
     
     func designRandomText(_ uil: UILabel){
@@ -176,27 +192,29 @@ class ViewController: UIViewController {
         tempText = uitf.text ?? ""
         // print(tempText.last)
         // 캐릭터를 반환 함으로 스트링 변환후 정수변환해야함 ㄹㄱㄴ
-//        guard let num = Int(tempText.last) else {
-//            
-//        }
+        //        guard let num = Int(tempText.last) else {
+        //
+        //        }
         
         // 이번엔 또 반딧불이 유충 같은 옵셔널 문제
-//        Value of optional type 'String.Element?' (aka 'Optional<Character>') must be unwrapped to a value of type 'String.Element' (aka 'Character')
-//        guard let num = Int(String(tempText.last)) else {
-//            
-//        }
+        //        Value of optional type 'String.Element?' (aka 'Optional<Character>') must be unwrapped to a value of type 'String.Element' (aka 'Character')
+        //        guard let num = Int(String(tempText.last)) else {
+        //
+        //        }
         
         // 옵셔널을 두번 풀어주니 보고싶지 않던 옵셔널 문구가 안뜬다
         /*
-        if let lastText = tempText.last {
-            guard let num = Int(String(lastText)) else {
-                // 마지막만 지워주는 함수를 겨우 찾았다
-                uitf.text = String(tempText.dropLast())
-                return
-            }
-        } 해당 기능은 거의 사용할 이유가 없다고 판단하여
+         if let lastText = tempText.last {
+         guard let num = Int(String(lastText)) else {
+         // 마지막만 지워주는 함수를 겨우 찾았다
+         uitf.text = String(tempText.dropLast())
+         return
+         }
+         } 해당 기능은 거의 사용할 이유가 없다고 판단하여
          자체적으로 주석 처리되었습니다.
          */
+        
+        // 로직중 닉네임 부분에서 숫자가 아니라 아마도 저장이 잠깐
         
         guard Int(tempText) != nil else {
             uitf.text = ""
@@ -221,12 +239,16 @@ class ViewController: UIViewController {
     
     func AccessResult() {
         if let height = resultDic[0], let weight = resultDic[1] {
-                let bmi = CalcBmi(height: height, weight: weight)
-                let message = "BMI : \(bmi)"
+            print("Test -> 키\(height)")
+            print("Test -> 무게\(weight)")
+            let bmi = CalcBmi(height: height, weight: weight)
+            let message = "BMI : \(bmi)"
             var test = ""
             
             switch bmi {
-            case ...18.5 :
+            case 0 :
+                test = "값이 없습니다."
+            case 1...18.5 :
                 test = resultV[0]!
             case 18.5...22.99 :
                 test = resultV[1]!
@@ -240,10 +262,10 @@ class ViewController: UIViewController {
                 test = "Error"
             }
             
-                designAlert2(title: test, message: message)
-            } else {
-                designAlert2(title: "오류", message: "데이터가 누락되었습니다.")
-            }
+            designAlert2(title: test, message: message)
+        } else {
+            designAlert2(title: "오류", message: "데이터가 누락되었습니다.")
+        }
     }
     
     // 현재는 중복되는 코드라도 후에 가서 수정을 위해
@@ -271,6 +293,35 @@ class ViewController: UIViewController {
         return result / 100
     }
     
+    func saveTextField() {
+        var temp = defaultKey
+        temp.reverse()
+        for i in textField {
+            print(i.text! + "\(temp)")
+            UserDefaults.standard.set(i.text, forKey: temp.popLast()!)
+        }
+        print(" 저장값 테스트 : " + (UserDefaults.standard.string(forKey: "키") ?? ""))
+        print(" 저장값 테스트 : " + (UserDefaults.standard.string(forKey: "몸무게") ?? ""))
+        print(" 저장값 테스트 : " + (UserDefaults.standard.string(forKey:"닉네임") ?? "진짜?"))
+    }
+    func setSaveTextField() {
+        var temp = defaultKey
+        temp.reverse()
+        /*
+        for i in textField {
+            i.text = UserDefaults.standard.string(forKey: temp.popLast() ?? "Test")
+        }
+        */
+        for i in textField {
+            guard let key = temp.popLast() else {
+                print("setSaveTextField Error")
+                return
+            }
+            i.text = UserDefaults.standard.string(forKey: key)
+        }
+    }
+
+    
     
     @IBAction func eyeButtonAct(_ sender: UIButton) {
         eyeButtonisAct = !eyeButtonisAct
@@ -293,6 +344,7 @@ class ViewController: UIViewController {
             testResult( $0, sender)
         }
         AccessResult()
+        saveTextField()
     }
     
     // 리턴키 없음 레잔도
@@ -308,9 +360,7 @@ class ViewController: UIViewController {
         view.endEditing(true)
     }
     
-    @IBAction func randomTouch(_ sender: UITapGestureRecognizer) {
-       
-    }
+
     
     @IBAction func randomTouchs(_ sender: UITapGestureRecognizer) {
         print("test2")
@@ -328,8 +378,16 @@ class ViewController: UIViewController {
 //        
         for i in 0...resultDic.count-1 {
             textField[i].text = String(Int(resultDic[i]!))
+            print(textField[i].text!)
         }
+        for i in textField {
+            if (i.tag == 2) {
+                i.text = randomNicList.randomElement()
+            }
+        }
+        
     }
+    // 랜덤닉네임
     
 }
 
