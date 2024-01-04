@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     let subText = "당신의 BMI 지수를 알려드립니다."
     let butSubText = ["닉네임 지어주세요~","키가 어떻게 되시나요?","몸무게는 어떻게 되시나요?"]
     let placeH = ["예) 180","예) 65","예) 개똥이"]
-    let randomText = "렌덤으로 BMI 계산하기"
+    let randomText = "렌덤 BMI 계산"
     let resultText = "결과 확인"
     var resultV = [0:"저체중", 1:"정상",2:"과체중",3:"비만",4:"고도비만"]
     
@@ -39,6 +39,7 @@ class ViewController: UIViewController {
     // @IBOutlet var nickNameTextField: UITextField!
     
     @IBOutlet var randomNicMakeLabel: UILabel!
+    @IBOutlet var resetButton: UIButton!
     
     
     
@@ -58,6 +59,7 @@ class ViewController: UIViewController {
         designEyeButton(eyeButton,eyeButtonisAct)
         setSaveTextField()
         designRandomLabel(randomNicMakeLabel)
+        designResetButton(uib: resetButton)
     }
     func designRandomLabel(_ uil:UILabel) {
         uil.font = .systemFont(ofSize: 12)
@@ -152,6 +154,19 @@ class ViewController: UIViewController {
         uib.setTitleColor(.white, for: .normal)
         uib.layer.cornerRadius = 12
     }
+    
+    // 이유는 모르겠으나 Equal height를 주었음에도
+    // 크기가 다름 일단 강제적으로 시도
+    // 알고보니 비율을 1로 안줌
+    func designResetButton( uib: UIButton) {
+        uib.setTitle("RESET", for: .normal)
+        uib.backgroundColor = UIColor(.red)
+        uib.setTitleColor(.white, for: .normal)
+        uib.layer.cornerRadius = 12
+        uib.tintColor = .black
+    }
+    
+    
     func designSecuText(_ uit: UITextField) {
         uit.isSecureTextEntry = eyeButtonisAct
     }
@@ -329,7 +344,25 @@ class ViewController: UIViewController {
             i.text = UserDefaults.standard.string(forKey: key)
         }
     }
-
+    // 리셋 해주는 함수
+    @objc func resetData() {
+        for key in defaultKey {
+            UserDefaults.standard.removeObject(forKey: key)
+        }
+        for uitf in textField {
+            uitf.text = ""
+        }
+    }
+    
+    func designResetAlert(){
+        let alert = UIAlertController(title: "삭제 하시겠습니까?", message: "저장된 데이터가 삭제됩니다.", preferredStyle: .alert)
+        let success = UIAlertAction(title: "삭제", style: .destructive,handler: {action in self.resetData()} )
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        alert.addAction(success)
+        alert.addAction(cancel)
+        
+        present(alert, animated: true)
+    }
     
     
     @IBAction func eyeButtonAct(_ sender: UIButton) {
@@ -402,6 +435,11 @@ class ViewController: UIViewController {
             }
         }
     }
+    @IBAction func resetButtonAct(_ sender: UIButton) {
+       designResetAlert()
+    }
+    
+    
     
     
 }

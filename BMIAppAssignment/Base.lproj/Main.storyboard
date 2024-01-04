@@ -142,6 +142,14 @@
                                     <outletCollection property="gestureRecognizers" destination="Sc1-F6-mR7" appends="YES" id="EKf-lV-6rP"/>
                                 </connections>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fvz-3X-wJ0">
+                                <rect key="frame" x="20" y="600.33333333333337" width="353" height="40"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="resetButtonAct:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3hG-Rn-ebk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -165,17 +173,21 @@
                             <constraint firstItem="Ate-Le-i63" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="W3n-Gd-4iJ"/>
                             <constraint firstItem="bRV-2T-c4S" firstAttribute="centerY" secondItem="uye-FZ-4b2" secondAttribute="centerY" id="ZrB-iK-E2l"/>
                             <constraint firstItem="bXx-rI-d5m" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="aCl-3L-aUw"/>
+                            <constraint firstItem="Fvz-3X-wJ0" firstAttribute="height" secondItem="tof-sc-C3H" secondAttribute="height" id="aHh-yY-kVP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="k3K-Xe-z4o" secondAttribute="trailing" constant="20" id="bCb-9V-g3N"/>
                             <constraint firstItem="bXx-rI-d5m" firstAttribute="top" secondItem="ncz-5m-wtn" secondAttribute="bottom" constant="12" id="bP1-hb-xww"/>
                             <constraint firstItem="uye-FZ-4b2" firstAttribute="top" secondItem="k3K-Xe-z4o" secondAttribute="bottom" constant="60" id="bU7-vs-ImU"/>
                             <constraint firstItem="uye-FZ-4b2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="cIJ-wm-y0M"/>
                             <constraint firstItem="tof-sc-C3H" firstAttribute="top" secondItem="uye-FZ-4b2" secondAttribute="bottom" constant="60" id="cK8-8r-8bF"/>
+                            <constraint firstItem="Fvz-3X-wJ0" firstAttribute="trailing" secondItem="tof-sc-C3H" secondAttribute="trailing" id="den-ri-hE5"/>
                             <constraint firstItem="zVB-7W-Ixk" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.269171" id="dvX-us-6Bj"/>
                             <constraint firstItem="CJ0-aI-gKQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="28" id="emO-Bf-UaS"/>
                             <constraint firstItem="fO5-By-miP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="f47-WL-cMR"/>
+                            <constraint firstItem="Fvz-3X-wJ0" firstAttribute="leading" secondItem="tof-sc-C3H" secondAttribute="leading" id="gL7-Ns-H8j"/>
                             <constraint firstItem="k3K-Xe-z4o" firstAttribute="top" secondItem="zVB-7W-Ixk" secondAttribute="bottom" id="nq5-4m-avz"/>
                             <constraint firstItem="uye-FZ-4b2" firstAttribute="top" secondItem="Ate-Le-i63" secondAttribute="bottom" constant="12" id="oAA-2Y-iWl"/>
                             <constraint firstItem="zVB-7W-Ixk" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.374046" id="wdx-ik-iUa"/>
+                            <constraint firstItem="Fvz-3X-wJ0" firstAttribute="top" secondItem="tof-sc-C3H" secondAttribute="bottom" constant="20" id="xYv-XX-ywe"/>
                             <constraint firstItem="8f8-mx-33P" firstAttribute="top" secondItem="CJ0-aI-gKQ" secondAttribute="bottom" constant="8" id="yF8-Ta-qoB"/>
                             <constraint firstItem="tof-sc-C3H" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="yWS-zA-05U"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uye-FZ-4b2" secondAttribute="trailing" constant="20" id="z4g-D9-2An"/>
@@ -189,6 +201,7 @@
                         <outlet property="mainTextLabel" destination="ncz-5m-wtn" id="n4F-ge-vUK"/>
                         <outlet property="randomNicMakeLabel" destination="fO5-By-miP" id="Jui-3l-wPt"/>
                         <outlet property="randomTextLabel" destination="F94-gx-lES" id="i5v-PZ-UH4"/>
+                        <outlet property="resetButton" destination="Fvz-3X-wJ0" id="7k4-ZQ-kGv"/>
                         <outlet property="resultButton" destination="tof-sc-C3H" id="1W3-gn-xkl"/>
                         <outlet property="subTextlabel" destination="bXx-rI-d5m" id="NQl-Wi-Upr"/>
                         <outletCollection property="buttonTextLabelT" destination="Ate-Le-i63" collectionClass="NSMutableArray" id="IQ2-QO-xoF"/>
