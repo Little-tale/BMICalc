@@ -47,7 +47,10 @@ class ViewController: UIViewController {
         print(defaultKey)
         design()
     }
-    
+    // 뷰 드로잉 사이클 -> 코너 레디우스 버그 관련
+    //override func viewDidLayoutSubviews() {
+      //  <#code#>
+    //}
     func design(){
         designMain(mainTextLabel)
         designSubT(subTextlabel)
