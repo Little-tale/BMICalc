@@ -440,6 +440,7 @@ class ViewController: UIViewController {
     
     
     
-    
+    // 현재 이유는 모르겠으나 텍스트 필드 변경
+    // 위치 변경 버그가 존재
 }
 
