@@ -2,7 +2,6 @@
 //  ViewController.swift
 //  BMIAppAssignment
 //
-//  Created by Jae hyung Kim on 1/3/24.
 //
 
 import UIKit
